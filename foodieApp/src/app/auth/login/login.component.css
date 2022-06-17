@@ -1,0 +1,42 @@
+/* ../../../assets/undraw_ice_cream_s-2-rh.svg */
+/* svg  link */
+/* :root {
+    --
+} */
+
+.login-main,
+.row {
+  height: 100%;
+}
+.login-form {
+  padding: 20px;
+  width: 100%;
+  position: relative;
+}
+.login-form > form {
+  width: 60%;
+  display: grid;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 40vh;
+  transform: translateY(-50%);
+  place-items: center;
+  position: absolute;
+}
+
+.login-images {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.svg > img {
+  height: 80%;
+  width: 80%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+}

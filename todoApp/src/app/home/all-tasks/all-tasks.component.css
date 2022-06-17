@@ -1,0 +1,67 @@
+mat-checkbox {
+  text-decoration: line-through;
+}
+.calander {
+  width: 270px;
+  position: relative;
+}
+
+.calander-header,
+.calander-body {
+  display: grid;
+  grid-template-columns: repeat(7, auto);
+  margin-top: 10px;
+  gap: 0;
+}
+.weeks,
+.day {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  margin-top: 8px;
+  cursor: pointer !important;
+}
+.event {
+  background-color: red;
+}
+.calander-months {
+  width: 270px;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  padding: 15px;
+  background-color: white;
+  /* border: solid; */
+  visibility: hidden;
+  transform: scale(1.5);
+  display: grid;
+  transition: all 0.1s ease-in-out;
+  grid-template-columns: repeat(3, auto);
+}
+.calander-months span {
+  padding: 10px;
+  cursor: pointer !important;
+  text-align: center;
+}
+.calander-years {
+  margin-top: 200px;
+  display: grid;
+  grid-template-columns: repeat(1, auto);
+  text-align: center;
+}
+.calander-content {
+  transform: scale(1);
+  transition: transform 0.5s ease-in-out;
+}
+.clander-content.hide {
+  transform: scale(0);
+  transition: transform 0.6s ease-in-out;
+}
+.calander-months.show {
+  visibility: visible;
+  transform: scale(1);
+  transition: all 0.2s ease-in-out;
+}
+.month-picker {
+  cursor: default;
+}

@@ -1,0 +1,55 @@
+<div class="container w-100">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
+    <img src="" class="img-rounded mr-4" height="50px" width="50px" alt="" />
+
+    <div class="mr-auto" id="navbarNav">
+      <ul class="navbar-nav">
+        <!-- <li class="nav-item active">
+          <a class="nav-link" href="#"
+            >Home <span class="sr-only">(current)</span></a
+          >
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li> -->
+
+        <li class="nav-item">
+          <h4>
+            {{ dataFromParent.fName | titlecase }}
+          </h4>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="chats p-5">
+    <div
+      *ngFor="let m of displayMessage"
+      [class]="m.fromEmail === auth.email() ? 'sent' : 'recived'"
+    >
+      <p (focus)="(true)">
+        {{ m.message }}
+        <span>{{ m.date }}</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="fromData">
+    <form #senForm="ngForm" (ngSubmit)="send(senForm)" action="">
+      <input name="email" ngModel [(ngModel)]="email" type="hidden" />
+      <input
+        name="toEmail"
+        ngModel
+        [(ngModel)]="dataFromParent.email"
+        type="hidden"
+        class=""
+      />
+      <input name="message" class="w-75 inp" ngModel type="text" />
+      <button class="btn" type="submit">
+        <img
+          src="https://img.icons8.com/small/16/000000/filled-sent.png"
+          width="23px"
+        />
+      </button>
+    </form>
+  </div>
+</div>

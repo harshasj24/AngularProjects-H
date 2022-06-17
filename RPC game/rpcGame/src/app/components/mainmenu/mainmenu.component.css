@@ -1,0 +1,64 @@
+.main {
+  /* border: solid; */
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: rgb(235, 222, 240);
+}
+.top-circle,
+.bottom-circle {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgb(127, 179, 213);
+}
+.top-circle {
+  clip-path: circle(150px at left 20px);
+}
+.bottom-circle {
+  bottom: 0;
+  clip-path: circle(450px at right 520px);
+  z-index: 1;
+}
+.mode-selctor {
+  width: 95%;
+  height: 90%;
+  position: absolute;
+  /* border: solid; */
+  /* margin: 5% 10%; */
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+/* mode selectors */
+
+.mode-selector {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 700px;
+  top: 50%;
+  transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+}
+.mode-selector button {
+  margin-top: 30px;
+}
+.image {
+  position: absolute;
+  right: 5%;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+}

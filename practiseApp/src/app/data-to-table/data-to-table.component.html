@@ -1,0 +1,159 @@
+<div class="container">
+  <input
+    type="text "
+    class="form-control mt-3"
+    placeholder="search"
+    [(ngModel)]="seachVal"
+    (input)="filter()"
+  />
+
+  <table class="table mt-3">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">age</th>
+        <th scope="col">address</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let d of datas">
+        <td>{{ d.name }}</td>
+        <td>{{ d.email }}</td>
+        <td>{{ d.username }}</td>
+        <td>
+          <button
+            class="btn btn-sm btn-warning"
+            data-toggle="modal"
+            data-target="#exampleModal2"
+          >
+            edit
+          </button>
+        </td>
+        <td><button class="btn btn-sm btn-danger">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- add modal -->
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<!-- <div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #addData="ngForm" (ngSubmit)="addDataToTable(addData)">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Id</label>
+            <input
+              type="number"
+              class="form-control"
+              aria-describedby="emailHelp"
+              name="id"
+              ngModel
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Name</label>
+            <input type="text" class="form-control" name="name" ngModel />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Age</label>
+            <input type="text" class="form-control" name="age" ngModel />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Address</label>
+            <input type="text" class="form-control" name="address" ngModel />
+          </div>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- edit modal -->
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<!-- <div
+  class="modal fade"
+  id="exampleModal2"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #editData="ngForm" (ngSubmit)="editDataInTable(editData)">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Id</label>
+            <input
+              type="number"
+              class="form-control"
+              aria-describedby="emailHelp"
+              name="id"
+              ngModel
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Name</label>
+            <input type="text" class="form-control" name="name" ngModel />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Age</label>
+            <input type="text" class="form-control" name="age" ngModel />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Address</label>
+            <input type="text" class="form-control" name="address" ngModel />
+          </div>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div> -->

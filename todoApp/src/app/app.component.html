@@ -1,0 +1,61 @@
+<mat-sidenav-container *ngIf="isMobile">
+  <!-- side nav bar -->
+  <mat-sidenav opened mode="side">
+    <div class="sidenav-content">
+      <div class="sidenav-header">
+        <div routerLink="/profile" class="avatar"></div>
+        <div class="avatar-name border">Your Name</div>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="sidenav-body mt-4">
+        <mat-list role="list" class="p-2">
+          <mat-list-item
+            routerLink="/task"
+            routerLinkActive="router-active"
+            class="icons"
+            role="listitem"
+            ><mat-icon class="mr-2">tasks</mat-icon> Tasks
+          </mat-list-item>
+          <mat-list-item
+            routerLink="/profile"
+            routerLinkActive="router-active"
+            class="icons"
+            role="listitem"
+          >
+            <mat-icon class="mr-2">calendar_today </mat-icon> Calander
+          </mat-list-item>
+          <mat-list-item class="icons" role="listitem">
+            <mat-icon class="mr-2">star_border</mat-icon> important
+          </mat-list-item>
+        </mat-list>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="sidenav-footer">
+        <mat-list>
+          <mat-list-item routerLink="/addTask" routerLinkActive="router-active">
+            <mat-icon>add</mat-icon> Add Task
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- dailog -->
+<h1 mat-dialog-title>Favorite Animal</h1>
+<div mat-dialog-content>
+  My favorite animal is:
+  <ul>
+    <li><span>&#10003;</span> Panda</li>
+    <li><span>&#10003;</span> Unicorn</li>
+    <li><span>&#10003;</span> Lion</li>
+  </ul>
+</div>
+<mat-card class="w-50 mx-auto mt-5 text-danger" *ngIf="!isMobile">
+  😥 sorry not supported for smaller devices
+</mat-card>

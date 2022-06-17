@@ -1,0 +1,45 @@
+nav {
+  background-color: #485797 !important;
+}
+.form-control {
+  width: 530px !important;
+  height: 35px !important;
+  background-color: rgb(241, 238, 238);
+}
+
+.form-inline {
+  margin-left: 20%;
+}
+.account {
+  width: 33px;
+  height: 33px;
+  border-radius: 100%;
+  background-color: rgb(255, 181, 181);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.last {
+  margin-right: 150px !important;
+}
+
+.form-control {
+  border-radius: 0;
+  border: 0.5px solid;
+  /* border-bottom: solid red; */
+  background-color: white;
+}
+
+.form-control:focus {
+  border: none;
+  box-shadow: none;
+  border-bottom: solid blue;
+}

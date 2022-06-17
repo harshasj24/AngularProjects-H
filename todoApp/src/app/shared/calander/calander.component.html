@@ -1,0 +1,33 @@
+<div class="calander mt-4">
+  <div (click)="monthpicker = true" class="month-picker">
+    {{ selectedMonth }} {{ selectedYear }}
+  </div>
+  <div [ngClass]="{ hide: monthpicker }" class="clander-content">
+    <div class="calander-header">
+      <div class="ml-3 weeks">Sun</div>
+      <div class="ml-3 weeks">Mon</div>
+      <div class="ml-3 weeks">Tue</div>
+      <div class="ml-3 weeks">Wed</div>
+      <div class="ml-3 weeks">Thu</div>
+      <div class="ml-3 weeks">Fri</div>
+      <div class="ml-3 weeks">Sat</div>
+    </div>
+
+    <div class="calander-body">
+      <div *ngFor="let day of days" class="day ml-3">
+        {{ day }}
+      </div>
+    </div>
+  </div>
+
+  <div [ngClass]="{ show: monthpicker }" class="calander-months">
+    <span (click)="monthPicker(month)" *ngFor="let month of months">{{
+      month
+    }}</span>
+  </div>
+  <!-- <div class="calander-years">
+      <span (click)="yearPicker(2021)">2021</span>
+      <span (click)="yearPicker(2022)">2022</span>
+      <span (click)="yearPicker(2023)">2023</span>
+    </div> -->
+</div>

@@ -1,0 +1,62 @@
+mat-sidenav-container {
+  height: 100%;
+  width: 100%;
+}
+
+mat-sidenav {
+  width: 230px;
+  transition: width 0.6s ease;
+  padding: 2px;
+  border: none !important;
+}
+
+mat-sidenav-content {
+  background-color: #f5f5f5;
+}
+.content {
+  /* width: 100%; */
+  overflow: hidden;
+  height: 100%;
+  /* overflow: hidden; */
+}
+mat-divider {
+  background-color: rgb(255, 249, 249) !important;
+
+  margin-top: 40px;
+}
+
+/* styling avatar */
+.sidenav-header {
+  margin-top: 40px;
+  display: grid;
+  place-items: center;
+  place-content: center;
+  row-gap: 15px;
+}
+
+.avatar {
+  width: 90px;
+  height: 90px;
+  border: solid;
+  background-image: url("https://cdn.icon-icons.com/icons2/2645/PNG/512/person_circle_icon_159926.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 100%;
+  cursor: pointer;
+}
+.sidenav-footer {
+  position: absolute;
+  bottom: 10px;
+}
+
+mat-list-item {
+  cursor: pointer;
+}
+.icons {
+  margin-top: 17px;
+}
+.router-active {
+  border-radius: 5px;
+  color: white;
+  background-color: var(--purpule);
+}

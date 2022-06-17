@@ -1,0 +1,36 @@
+mat-toolbar {
+  background-color: #e57373;
+  color: white;
+}
+
+mat-sidenav-container {
+  height: calc(100% - 65px) !important;
+}
+mat-sidenav {
+  background-color: #e57373;
+  margin: 10px;
+  width: 200px;
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px;
+}
+.content {
+  height: calc(100% - 23px) !important;
+  margin: 10px;
+  margin-left: 20px;
+
+  font-size: 20px;
+  color: lightgray;
+}
+mat-grid-tile {
+  background: lightblue;
+}
+.grid {
+  width: 220px;
+  height: 230px;
+  border: red solid;
+}
+
+mat-grid-list {
+  width: 170px !important;
+}

@@ -1,0 +1,2 @@
+***1) @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+(this should be added to the style.css in angular project in order to get the components work)

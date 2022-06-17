@@ -1,0 +1,129 @@
+<app-popup *ngIf="flag" (dataToParent)="recivedData($event)"></app-popup>
+<app-victroypopup (restartGame)="restartReq($event)" *ngIf="rounds >= 5">
+  <div class="row">
+    <div class="col-8">
+      <h2>
+        {{
+          winCount >= 3 && rounds >= 5
+            ? "congratulations you won !"
+            : "Ohh Nooo! you Loose !"
+        }}
+      </h2>
+      <!-- <h2>Ohh Nooo! you Loose !</h2> -->
+    </div>
+    <div class="col-4">
+      <!-- <img
+        width="100px"
+        height="80px"
+        src="https://icons.iconarchive.com/icons/google/noto-emoji-activities/1024/52707-party-popper-icon.png"
+        alt=""
+        lose
+        https://media.istockphoto.com/vectors/depressed-emoticon-vector-id480144800?k=20&m=480144800&s=612x612&w=0&h=UBol4m9eJ03gm-G34KsRHeLg7UJePn3btS1yNkCRI2Q=
+      /> -->
+      <img
+        width="100px"
+        height="80px"
+        [src]="
+          winCount >= 3 && rounds >= 5
+            ? 'https://icons.iconarchive.com/icons/google/noto-emoji-activities/1024/52707-party-popper-icon.png'
+            : 'https://media.istockphoto.com/vectors/depressed-emoticon-vector-id480144800?k=20&m=480144800&s=612x612&w=0&h=UBol4m9eJ03gm-G34KsRHeLg7UJePn3btS1yNkCRI2Q='
+        "
+        alt=""
+      />
+    </div>
+  </div>
+</app-victroypopup>
+<div class="main">
+  <div class="sugeation-pannel"></div>
+  <div class="gameWindow">
+    <!-- system moves -->
+    <div class="system-move">
+      <div class="head mt-4">
+        <h4>System Move</h4>
+      </div>
+    </div>
+    <!-- rrsults -->
+    <div class="results">
+      <div *ngIf="timer" class="timmer">
+        <h1 class="text-timmer">{{ timmerCount }}</h1>
+      </div>
+      <div *ngIf="!timer" class="computer-result" [ngSwitch]="RPS[random]">
+        <i *ngSwitchCase="'rock'" class="fa-solid fa-hand-back-fist"></i>
+        <i *ngSwitchCase="'paper'" class="fa-solid fa-hand"></i>
+        <i *ngSwitchCase="'scissor'" class="fa-solid fa-hand-scissors"></i>
+      </div>
+      <div *ngIf="!timer" class="player-result" [ngSwitch]="rpsValue">
+        <i *ngSwitchCase="'rock'" class="fa-solid fa-hand-back-fist"></i>
+        <i *ngSwitchCase="'paper'" class="fa-solid fa-hand"></i>
+        <i *ngSwitchCase="'scissor'" class="fa-solid fa-hand-scissors"></i>
+        <i *ngSwitchDefault="" class=""></i>
+      </div>
+    </div>
+    <!-- players Move -->
+    <div class="player-move">
+      <div class="head mt-3">
+        <h4>Choose Your Move</h4>
+      </div>
+      <div id="icons" class="icons">
+        <button
+          [disabled]="iconsDisabled || rounds >= 5"
+          value="rock"
+          class="btn"
+        >
+          <i class="fa-solid fa-hand-back-fist"></i>
+        </button>
+        <button
+          [disabled]="iconsDisabled || rounds >= 5"
+          value="paper"
+          class="btn"
+        >
+          <i class="fa-solid fa-hand"></i>
+        </button>
+        <button
+          [disabled]="iconsDisabled || rounds >= 5"
+          value="scissor"
+          class="btn"
+        >
+          <i class="fa-solid fa-hand-scissors"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="score-bord">
+    <h3 class="mt-4">Score Bord</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Round</th>
+          <th scope="col">You</th>
+          <th scope="col">Computer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let scores of scoreBord">
+          <td>{{ scores.round }}</td>
+
+          <td>
+            <i
+              [class]="
+                scores.won === 'player'
+                  ? 'fa-solid fa-check text-success'
+                  : 'fa-solid fa-xmark text-danger'
+              "
+            ></i>
+          </td>
+
+          <td>
+            <i
+              [class]="
+                scores.won === 'computer'
+                  ? 'fa-solid fa-check text-success'
+                  : 'fa-solid fa-xmark text-danger'
+              "
+            ></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

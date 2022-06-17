@@ -1,0 +1,15 @@
+<input type="text" [(ngModel)]="what" placeholder="what" />
+<input type="text" [(ngModel)]="with" placeholder="with" />
+<button (click)="cliked()">change</button>
+<div>
+  <h1 *ngFor="let d of data">
+    {{ d.name.length > 9 ? [d.name | slice: 0:10] : d.name }}
+  </h1>
+</div>
+<div #div class="hel">
+  <p>hello</p>
+  <p>hello</p>
+  <p>hello</p>
+  <p>hello</p>
+  <p>hello</p>
+</div>

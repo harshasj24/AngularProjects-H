@@ -1,0 +1,63 @@
+<div class="login-main">
+  <div class="row border border-primary">
+    <div class="col-6 border">
+      <div class="login-images">
+        <div class="svg">
+          <img src="../../../assets/undraw_ice_cream_s-2-rh.svg" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="login-form">
+        <form
+          [formGroup]="loginForm"
+          action=""
+          (ngSubmit)="loginForm.valid && handleSubmit()"
+          class="mx-auto"
+        >
+          <div class="form-field w-100">
+            <mat-form-field class="w-100" appearance="outline">
+              <mat-label>Email</mat-label>
+              <input
+                formControlName="email"
+                class=""
+                matInput
+                placeholder="Placeholder"
+              />
+              <mat-icon matSuffix>email</mat-icon>
+              <mat-error *ngIf="email?.hasError('email')">
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="email?.hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-field w-100">
+            <mat-form-field class="w-100 my-2" appearance="outline">
+              <mat-label>Password</mat-label>
+              <input
+                formControlName="password"
+                matInput
+                placeholder="Placeholder"
+              />
+              <mat-icon matSuffix>key</mat-icon>
+              <mat-error> * password is required</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="button-field">
+            <button
+              class="w-100"
+              mat-raised-button
+              color="primary"
+              type="submit"
+            >
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

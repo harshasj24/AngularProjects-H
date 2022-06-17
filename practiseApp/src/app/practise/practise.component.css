@@ -1,0 +1,13 @@
+.c {
+  width: 20px;
+}
+.f {
+  color: red;
+}
+.btn {
+  transition: 0.4s ease;
+}
+.active {
+  background-color: black !important;
+  border: none;
+}

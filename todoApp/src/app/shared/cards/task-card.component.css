@@ -1,0 +1,14 @@
+.card-content {
+  display: flex;
+  align-items: center;
+}
+.card-content mat-checkbox {
+  margin: 0 !important;
+}
+.card-content h3 {
+  margin: 0;
+  margin-left: 20px;
+}
+.card-content .important {
+  margin-left: auto;
+}

@@ -1,0 +1,13 @@
+button {
+  width: 100px;
+  background-color: black;
+  color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  height: 40px;
+}
+button:active {
+  transform: scale(0.9);
+}

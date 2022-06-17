@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col-4 border border-solid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
+      <img src="" class="img-rounded" height="50px" width="50px" alt="" />
+
+      <div class="ml-auto" id="navbarNav">
+        <ul class="navbar-nav">
+          <!-- <li class="nav-item active">
+              <a class="nav-link" href="#"
+                >Home <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li> -->
+          <li class="nav-item">
+            <i
+              style="font-size: 26px"
+              class="fa-solid fa-ellipsis-vertical"
+              data-toggle="dropdown"
+              aria-expanded="false"
+            ></i>
+            <!-- Default dropleft button -->
+            <div class="btn-group dropleft">
+              <div class="dropdown-menu">
+                <!-- Dropdown menu links -->
+                <button class="dropdown-item" (click)="logout()" type="button">
+                  Logout
+                </button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="search mx-auto">
+      <input
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+    </div>
+    <div
+      *ngFor="let v of allFriends"
+      class="jumbotron jumbotron-fluid p-3 bg-light"
+      (click)="userEmail({ email: v.email, fName: v.fName, lName: v.lName })"
+    >
+      <div class="container names row">
+        <div class="col-2 images">
+          <img src="" class="img-rounded" height="50px" width="50px" alt="" />
+        </div>
+        <div class="col-10">
+          <h6>{{ v.fName }} {{ v.lName }}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-8 leftSide border boder-solid">
+    <div *ngIf="!emailToChild" class="greet">
+      <h1>Welcome Back</h1>
+    </div>
+    <app-chatbord
+      *ngIf="emailToChild"
+      [dataFromParent]="emailToChild"
+    ></app-chatbord>
+  </div>
+</div>

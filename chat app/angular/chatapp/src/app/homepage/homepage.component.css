@@ -1,0 +1,63 @@
+.row {
+  height: 100%;
+}
+.col-4 {
+  height: 100%;
+  padding: 0;
+
+  /* overflow-y: scroll; */
+  /* padding: 0px 0px 0px 29px; */
+  box-shadow: 2px 1px 12px rgb(255, 255, 255);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 0%;
+  border-radius: 3px;
+}
+.dropdown-menu {
+  margin-right: 9px;
+}
+.search {
+  padding: 20px;
+}
+.jumbotron-fluid {
+  height: 12%;
+  border-left: solid 4px rgb(18, 202, 67);
+  border-radius: 7px 0px 0px 7px !important;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.names {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start;
+}
+.leftSide {
+  padding: 0;
+  width: 100% !important;
+  background-color: rgb(236, 240, 241);
+
+  /* overflow: scroll; */
+}
+.greet {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.images {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.images img {
+  height: "50px";
+  width: "50px";
+  border-radius: 100%;
+}

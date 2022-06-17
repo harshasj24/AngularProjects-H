@@ -1,0 +1,62 @@
+<h1 class="text-center mx-auto w-50 mt-5">Add your Task</h1>
+<form action="" class="mx-auto">
+  <mat-form-field appearance="outline">
+    <mat-label>What's Need To Be Done?</mat-label>
+    <input matInput placeholder="Placeholder" />
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+  </mat-form-field>
+  <div class="checkbokes">
+    <mat-checkbox>Shcecuduler</mat-checkbox>
+    <mat-checkbox #task>group Task</mat-checkbox>
+    <mat-checkbox>Important</mat-checkbox>
+  </div>
+  <div class="dates">
+    <mat-form-field appearance="outline" class="example-form-field">
+      <mat-label>Start Date</mat-label>
+      <input matInput [matDatepicker]="datepicker" />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="datepicker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #datepicker>
+        <mat-datepicker-actions>
+          <button mat-button matDatepickerCancel>Cancel</button>
+          <button mat-raised-button color="primary" matDatepickerApply>
+            Apply
+          </button>
+        </mat-datepicker-actions>
+      </mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Start Time</mat-label>
+      <input type="time" matInput placeholder="Placeholder" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="example-form-field">
+      <mat-label>End Date</mat-label>
+      <input matInput [matDatepicker]="datepickerEnd" />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="datepickerEnd"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #datepickerEnd>
+        <mat-datepicker-actions>
+          <button mat-button matDatepickerCancel>Cancel</button>
+          <button mat-raised-button color="primary" matDatepickerApply>
+            Apply
+          </button>
+        </mat-datepicker-actions>
+      </mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>End Time</mat-label>
+      <input type="time" matInput placeholder="Placeholder" />
+    </mat-form-field>
+  </div>
+  <!-- <div class="dates">
+   
+  </div> -->
+</form>

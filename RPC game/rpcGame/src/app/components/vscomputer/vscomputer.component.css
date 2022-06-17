@@ -1,0 +1,175 @@
+.main {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: rgb(235, 222, 240);
+}
+.gameWindow {
+  width: 40%;
+  height: 90%;
+  background-color: white;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.player-move {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30%;
+  border: none;
+  border-top: 10px rgb(235, 222, 240) solid;
+}
+.system-move {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 20%;
+  border: none;
+  border-bottom: 10px rgb(235, 222, 240) solid;
+}
+
+/* rgb(127, 179, 213); */
+.player-move,
+.system-move {
+  color: rgb(127, 179, 213);
+  text-align: center;
+}
+.player-move .icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: absolute;
+  bottom: 25px;
+}
+.player-move .icons i {
+  font-size: 24px;
+  color: white;
+  margin-right: 30px;
+  background-color: rgb(127, 179, 213);
+  padding: 11px;
+  border-radius: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+.player-move .icons i:hover {
+  transform: translateY(-15%);
+}
+
+.fa-hand-scissors {
+  transform: rotate(90deg);
+}
+.btn:focus {
+  box-shadow: none;
+  border: none;
+  outline: none;
+}
+
+.results {
+  width: 100%;
+  position: absolute;
+  /* border: solid;  */
+  height: 50%;
+  top: 20%;
+}
+.player-result,
+.computer-result {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  /* border: solid; */
+  /* text-align: center; */
+}
+.player-result {
+  bottom: 0px;
+}
+.computer-result {
+  top: 0;
+}
+.player-result i {
+  bottom: 19px;
+}
+.player-result i,
+.computer-result i {
+  position: absolute;
+  font-size: 70px;
+  left: 43%;
+  color: rgb(127, 179, 213);
+}
+.computer-result i {
+  top: 10px;
+  transform: rotate(180deg);
+}
+.computer-result .fa-hand-scissors {
+  transform: rotate(270deg);
+}
+.timmer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* clip-path: circle(80px at center); */
+  text-align: center;
+  z-index: 2;
+}
+.timmer::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgb(127, 179, 213);
+  clip-path: circle(80px at center);
+}
+.text-timmer {
+  color: white;
+  font-size: 90px;
+  position: absolute;
+  z-index: 4;
+}
+.score-bord {
+  height: 90%;
+  position: absolute;
+  width: 20%;
+  right: 7%;
+  background-color: white;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-align: center;
+}
+.sugeation-pannel {
+  width: 24%;
+  height: 30%;
+  background-color: white;
+  position: absolute;
+  left: 2%;
+  top: 25%;
+}
+
+/* content projection */
+.row {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.col-4,
+.col-8 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  /* position: absolute; */
+  top: -10%;
+}
+.col-8 {
+  text-align: center;
+  /* padding: 26px; */
+}

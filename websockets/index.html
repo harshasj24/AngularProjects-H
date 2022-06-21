@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+    <!-- <script
+      src="https://cdn.socket.io/4.5.0/socket.io.min.js"
+      integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
+      crossorigin="anonymous"
+    ></script> -->
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+  </head>
+
+  <body>
+    <button>Send message</button>
+    <input type="text" name="" id="inp" />
+    <h1></h1>
+    <script type="module">
+      let myid = 0;
+      const socket = io("http://localhost:3000");
+
+      socket.on("check", (data) => {
+        console.log(data);
+        document.querySelector("h1").innerText = data;
+      });
+
+      socket.on("listen", (data) => {
+        console.log(data);
+      });
+      socket.emit("check", "inp");
+      document.querySelector("button").addEventListener("click", () => {
+        let inp = document.getElementById("inp").value;
+        socket.emit("check", inp);
+        socket.on("check", (data) => {
+          console.log(data);
+          document.querySelector("h1").innerText = data;
+        });
+      });
+      // console.log("edd");
+    </script>
+  </body>
+</html>
+<!-- npm i socket.io-client -->

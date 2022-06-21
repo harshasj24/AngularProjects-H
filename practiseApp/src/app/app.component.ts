@@ -26,17 +26,6 @@ export class AppComponent implements OnInit {
   }
   coin: any = [];
   ngOnInit(): void {
-    this.api.coin().subscribe((v: any) => {
-      console.log(v);
-      this.coin = v;
-      console.log(
-        this.coin.filter((c: any) => {
-          return c.last_updated === '2022-05-09T06:41:01.227Z';
-        }),
-        'filter'
-      );
-    });
-
     console.log(this.getDataInToken().role);
 
     this.api.getData().subscribe((val) => {

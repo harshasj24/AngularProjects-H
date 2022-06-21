@@ -7,6 +7,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
+  hide: boolean = true;
+  cpassHide: boolean = true;
   regForm = new FormGroup({
     email: new FormControl('', [Validators.required]),
     firstName: new FormControl('', [Validators.required]),

@@ -1,0 +1,18 @@
+<button (click)="logout()">LogOut</button>
+<h1>chat box</h1>
+
+<div class="chat-dsplay w-50 border border-warning h-50 mx-auto">
+  <div class="chats d-flex flex-column p-3">
+    <div
+      *ngFor="let m of messages"
+      [class]="myId == m.senderId ? 'ml-auto' : 'mr-auto'"
+    >
+      {{ m.message }}
+    </div>
+  </div>
+</div>
+
+<div class="send-section d-flex w-25 flex-nowrap mx-auto my-3">
+  <input [(ngModel)]="messageFiled" class="form-field" type="text" />
+  <button (click)="send()" class="btn btn-dark btn-sm ml-2">send</button>
+</div>

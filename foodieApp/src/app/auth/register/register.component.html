@@ -10,7 +10,7 @@
     <input formControlName="email" matInput placeholder="Placeholder" />
     <mat-icon matSuffix>email</mat-icon>
     <mat-error *ngIf="email?.hasError('required')">
-      *Email is required</mat-error
+      please provide your email adress</mat-error
     >
   </mat-form-field>
   <div class="name-field">
@@ -24,6 +24,9 @@
             placeholder="Placeholder"
           />
           <mat-icon matSuffix>person</mat-icon>
+          <mat-error *ngIf="firstName?.hasError('required')"
+            >Please provide your first name</mat-error
+          >
         </mat-form-field>
       </div>
       <div class="col-md-6 w-100">
@@ -35,6 +38,9 @@
             placeholder="Placeholder"
           />
           <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-error *ngIf="lastName?.hasError('required')"
+            >Please provide your last name</mat-error
+          >
         </mat-form-field>
       </div>
     </div>
@@ -44,13 +50,23 @@
     <div class="row">
       <div class="col-6">
         <mat-form-field class="w-100" appearance="outline">
-          <mat-label>password</mat-label>
+          <mat-label>Enter your password</mat-label>
           <input
             formControlName="password"
             matInput
-            placeholder="Placeholder"
+            [type]="hide ? 'password' : 'text'"
           />
-          <mat-icon matSuffix>key</mat-icon>
+          <button
+            mat-icon-button
+            matSuffix
+            type="button"
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+          <mat-error></mat-error>
           <mat-error *ngIf="password?.hasError('pattern')"
             >password must have Minimum eight characters, at least one letter
             one number and one speical character</mat-error
@@ -59,13 +75,27 @@
       </div>
       <div class="col-6">
         <mat-form-field class="w-100" appearance="outline">
-          <mat-label>Confirm Password</mat-label>
+          <mat-label>Enter your password</mat-label>
           <input
             formControlName="cPassword"
             matInput
-            placeholder="Placeholder"
+            [type]="cpassHide ? 'password' : 'text'"
           />
-          <mat-icon matSuffix>key</mat-icon>
+          <button
+            mat-icon-button
+            matSuffix
+            type="button"
+            (click)="cpassHide = !cpassHide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="cpassHide"
+          >
+            <mat-icon>{{
+              cpassHide ? "visibility_off" : "visibility"
+            }}</mat-icon>
+          </button>
+          <mat-error *ngIf="password?.value !== cPassword?.value"
+            >Plesae enter the same password
+          </mat-error>
         </mat-form-field>
       </div>
     </div>
@@ -77,4 +107,3 @@
   </mat-form-field>
   <button mat-raised-button color="primary" type="submit">Register</button>
 </form>
-<h1>I have made some change for thr git hub</h1>

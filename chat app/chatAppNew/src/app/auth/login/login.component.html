@@ -1,0 +1,28 @@
+<form
+  [formGroup]="loginForm"
+  action=""
+  (ngSubmit)="loginForm.valid && handleLogin()"
+  class="w-25 mat-elevation-z4 p-3 mx-auto mt-5"
+>
+  <mat-form-field class="w-100" appearance="outline">
+    <mat-label>Email</mat-label>
+    <input formControlName="email" matInput placeholder="Placeholder" />
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-error *ngIf="email?.hasError('required')"> email is requird</mat-error>
+  </mat-form-field>
+  <mat-form-field class="w-100 my-3" appearance="outline">
+    <mat-label>Password</mat-label>
+    <input formControlName="password" matInput placeholder="Placeholder" />
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-error *ngIf="password?.hasError('required')">
+      password is requird</mat-error
+    >
+  </mat-form-field>
+  <button
+    class="mx-auto d-flex w-50 justify-content-center"
+    mat-raised-button
+    color="primary"
+  >
+    Login.
+  </button>
+</form>

@@ -1,0 +1,58 @@
+<!-- chat name -->
+<mat-toolbar>
+  <div class="user-dp">
+    <div mat-card-avatar class="avatar center">
+      <mat-icon>person</mat-icon>
+    </div>
+  </div>
+  <div class="name ml-3 d-flex flex-column justify-content-start">
+    <h1>{{ name.name | titlecase }}</h1>
+    <p *ngIf="!isTyping" class="online">online</p>
+    <p *ngIf="isTyping" class="online">Typing</p>
+  </div>
+</mat-toolbar>
+<!-- chats display  -->
+<div #scrollable class="chats container border d-flex flex-column">
+  <div
+    *ngFor="let message of messages$ | async"
+    class="display-chats d-flex flex-column"
+  >
+    <span
+      class="chat my-1 d-flex font-md"
+      [class]="
+        authS.getEmail() === message.fromEmail
+          ? 'ml-auto from-color'
+          : 'mr-auto'
+      "
+    >
+      {{ message.message }}
+      <span class="font-sm">{{ message.time | date: "h:mm a" }}</span>
+    </span>
+  </div>
+</div>
+<div class="chats-footer">
+  <!-- input field and send button -->
+  <mat-toolbar class="">
+    <form
+      #msgForm="ngForm"
+      class="w-75 mx-auto d-flex justify-content-center"
+      (ngSubmit)="sendMessage(msgForm)"
+      action=""
+    >
+      <input
+        type="text"
+        (input)="handleInput()"
+        class="form-control"
+        placeholder="Type a Message"
+        name="message"
+        required
+        autofocus
+        autocomplete="off"
+        ngModel
+      />
+      <button type="submit" mat-icon-button>
+        <mat-icon class="ml-2">send</mat-icon>
+      </button>
+    </form>
+  </mat-toolbar>
+</div>

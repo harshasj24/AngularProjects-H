@@ -1,0 +1,47 @@
+<mat-sidenav-container hasBackdrop="false">
+  <mat-sidenav #sidenav disableClose mode="over">
+    <header>
+      <div class="header-content mb-3">
+        <button (click)="sidenav.close()" class="float-right" mat-icon-button>
+          <mat-icon>keyboard_backspace</mat-icon>
+        </button>
+        <h3>New Chat</h3>
+      </div>
+    </header>
+
+    <mat-card
+      (click)="handleCurrentUser(contact.email)"
+      class="d-flex align-items-center"
+      *ngFor="let contact of allContacts$ | async"
+    >
+      <div
+        mat-card-avatar
+        class="avatar bg-light d-flex align-items-center justify-content-center"
+      >
+        <mat-icon>person</mat-icon>
+      </div>
+      <h4 class="m-0">{{ contact.name | titlecase }}</h4>
+    </mat-card>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="layout">
+      <div class="chat-contact border">
+        <app-chat-contact-list
+          (sideNavToggle)="toggleSideNav($event)"
+          (selectedChat)="selectedChat($event)"
+        ></app-chat-contact-list>
+      </div>
+      <div class="chat-display border">
+        <div
+          *ngIf="!isChatSelected"
+          class="wl d-flex align-items-center justify-content-center w-100 h-100"
+        >
+          <h1>Welcome Back</h1>
+        </div>
+        <app-messages *ngIf="isChatSelected"> </app-messages>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- <app-chat-layout [usersData]="allUsers$"></app-chat-layout>-->

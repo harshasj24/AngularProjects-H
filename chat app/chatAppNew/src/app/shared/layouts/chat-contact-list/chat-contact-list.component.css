@@ -1,0 +1,37 @@
+.avatar {
+  height: 42px;
+  width: 42px;
+  background-size: cover;
+  background-color: rgb(169, 165, 165);
+  border-radius: 100%;
+  display: grid;
+  place-items: center;
+}
+mat-toolbar {
+  height: 60px;
+  background-color: rgb(234, 234, 234) !important;
+}
+
+.body {
+  width: 100%;
+  height: calc(100vh - 125px);
+  /* border: solid; */
+  overflow-y: scroll !important;
+}
+.body::-webkit-scrollbar {
+  width: 5px;
+
+  /* background-color: #aaa; or add it to the track */
+}
+.body::-webkit-scrollbar-thumb {
+  /* background-color: red; */
+  height: 2em !important;
+}
+
+mat-card {
+  border-bottom: 1px solid lightgray;
+  box-shadow: none !important;
+  gap: 12px;
+  border-radius: 0;
+  cursor: pointer;
+}

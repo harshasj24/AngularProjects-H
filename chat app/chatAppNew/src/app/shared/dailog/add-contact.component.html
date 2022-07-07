@@ -1,0 +1,30 @@
+<form
+  [formGroup]="addContact"
+  (ngSubmit)="addContact.valid && handleAddContact()"
+  action=""
+  class="w-100"
+>
+  <h3 class="text-center">Add To Your Conatct</h3>
+  <mat-form-field class="w-100" appearance="outline">
+    <mat-label>Name</mat-label>
+    <input
+      formControlName="name"
+      type="text"
+      class="name"
+      matInput
+      placeholder="Placeholder"
+    />
+    <mat-error> Name is requird</mat-error>
+  </mat-form-field>
+  <mat-form-field class="w-100" appearance="outline">
+    <mat-label>Email </mat-label>
+    <input formControlName="email" matInput placeholder="Placeholder" />
+    <mat-error> Email is requird</mat-error>
+  </mat-form-field>
+  <mat-form-field class="w-100" appearance="outline">
+    <mat-label>Phone Number </mat-label>
+    <input formControlName="phone" matInput placeholder="Placeholder" />
+    <mat-error> phone is requird</mat-error>
+  </mat-form-field>
+  <button color="primary" mat-raised-button>Add</button>
+</form>

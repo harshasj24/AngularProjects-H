@@ -1,7 +1,9 @@
 const express = require("express");
-const app = express();
+
+const { app,server } = require("./sockets");
 
 const mongoose = require("mongoose");
+
 const userRouter = require("./routes/users");
 const chatRouter = require("./routes/chats");
 const cors = require("cors");
@@ -35,7 +37,7 @@ app.use(express.json());
 app.use("/users", userRouter);
 app.use("/chat", chatRouter);
 app.use("/friends", friendRouter);
-
-app.listen(4500, () => {
+// module.exports = { io };
+server.listen(4500, () => {
   console.log("server is listining on port", 4500);
 });

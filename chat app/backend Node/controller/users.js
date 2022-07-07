@@ -2,7 +2,7 @@ const users = require("../models/users");
 const friendsList = require("../models/friendsList");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-SCRECT_KEY = "123$%^&";
+require("dotenv").config();
 let signUp = async (req, res, next) => {
   let { fName, lName, email, password, pNumber, dp, status } = req.body;
   try {
@@ -47,26 +47,24 @@ let signUp = async (req, res, next) => {
 let login = async (req, res, next) => {
   let { email, pNumber, password } = req.body;
   try {
-    let userdata = await users.findOne({ email }).lean();
+    let userdata = await users.findOne({ email });
     if (userdata) {
-      let { fName, lName, email } = userdata;
+      let { _id, fName, lName, email } = userdata;
       let passMatch = await bcrypt.compare(password, userdata.password);
-      console.log(userdata);
+
       if (passMatch) {
         let payload = {
           fName,
           email,
           lName,
         };
-        let token = await jwt.sign(payload, SCRECT_KEY);
+        let token = await jwt.sign(payload, process.env.SCRECT_KEY);
         res.json({
           error: false,
           message: "Login scucessfull",
           data: {
             token,
-            email: userdata.email,
-            fName: userdata.fName,
-            lName: userdata.lName,
+            email,
           },
         });
       } else {
@@ -124,4 +122,16 @@ const editPassword = async (req, res, next) => {
   } catch (error) {}
 };
 // console.log(usersData);
-module.exports = { signUp, login, allUsers, editPassword };
+
+const userStatus = async (req, res, next) => {
+  let { email } = req.body;
+  try {
+    await users.updateOne({ email }, { status: "online" });
+    res.json({
+      message: "active ",
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+module.exports = { signUp, login, allUsers, editPassword, userStatus };

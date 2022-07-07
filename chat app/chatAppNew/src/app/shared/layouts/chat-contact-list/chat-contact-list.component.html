@@ -1,0 +1,55 @@
+<!-- toolbar -->
+<mat-toolbar color="warn">
+  <!-- dp avatar -->
+  <div class="user-dp">
+    <div mat-card-avatar class="avatar center">
+      <mat-icon>person</mat-icon>
+    </div>
+  </div>
+  <div class="action-btns ml-auto text-dark">
+    <button (click)="openDailog()" mat-icon-button>
+      <mat-icon>add</mat-icon>
+    </button>
+    <button (click)="toggleSideNav()" class="" mat-icon-button>
+      <mat-icon>contacts</mat-icon>
+    </button>
+    <!-- more button -->
+    <button class="" mat-icon-button [matMenuTriggerFor]="beforeMenu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #beforeMenu="matMenu" xPosition="before">
+      <button (click)="logOut()" mat-menu-item>Logout</button>
+      <!-- <button mat-menu-item>Item 2</button> -->
+    </mat-menu>
+  </div>
+  <!-- add button  -->
+  <!-- contact button -->
+</mat-toolbar>
+<!-- search bar -->
+<div class="search p-2">
+  <input
+    class="form-control mr-sm-2 my-2"
+    type="search"
+    placeholder="Search"
+    aria-label="Search"
+  />
+</div>
+<!-- chats list -->
+<div class="body pb-4">
+  <!-- user display -->
+  <mat-card
+    *ngFor="let chat of chatList | async"
+    (click)="selectChat(chat.email)"
+    class="d-flex align-items-center"
+  >
+    <div
+      mat-card-avatar
+      class="avatar bg-light d-flex align-items-center justify-content-center"
+    >
+      <mat-icon>person</mat-icon>
+    </div>
+
+    <h4>{{ chat.name | titlecase }}</h4>
+  </mat-card>
+</div>

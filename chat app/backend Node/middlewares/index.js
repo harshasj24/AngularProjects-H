@@ -1,27 +1,23 @@
 const jwt = require("jsonwebtoken");
-SCRECT_KEY = "123$%^&";
-let isLogin = (req, res, next) => {
-  if (req.headers["authorization"]) {
-    const token = req.headers["authorization"].split(" ")[1];
-    const payload = jwt.verify(token, SCRECT_KEY);
-    console.log(payload);
-    if (req.headers["authorization"].split(" ")[1]) {
-      next();
-    } else {
-      console.log("done");
-      res.json({
-        error: true,
-        message: "invalid user",
-        data: null,
-      });
-    }
-  } else {
-    res.json({
+
+const isValidToken = (req, res, next) => {
+  if (!req.headers["authorization"]) {
+    return res.status(404).json({
       error: true,
-      message: "Invalid Authorizaton key",
-      data: null,
+      message: "Authorization key is required",
+    });
+  }
+  const token = req.headers["authorization"].split(" ")[1];
+  try {
+    const payload = jwt.verify(token, process.env.SCRECT_KEY);
+    return next();
+  } catch (error) {
+    console.log(token);
+    return res.status(401).json({
+      error: true,
+      message: "Token not valid",
     });
   }
 };
 
-module.exports = { isLogin };
+module.exports = { isValidToken };
